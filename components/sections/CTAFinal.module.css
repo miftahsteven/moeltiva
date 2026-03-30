@@ -1,0 +1,114 @@
+.section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #1a3d2b 0%, var(--dark-green) 50%, #2d6e47 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.blob1 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(162,196,114,0.18) 0%, transparent 70%);
+  top: -150px; right: -100px;
+  pointer-events: none;
+}
+
+.blob2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246,220,67,0.12) 0%, transparent 70%);
+  bottom: -100px; left: -80px;
+  pointer-events: none;
+}
+
+.inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.leafDecor {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+.headline {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin: 16px 0 20px;
+}
+
+.highlight {
+  color: var(--yellow);
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 0; right: 0;
+  height: 6px;
+  background: rgba(246,220,67,0.3);
+  border-radius: 3px;
+  z-index: -1;
+}
+
+.subtext {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto 36px;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.mainCta {
+  font-size: 1.05rem;
+  padding: 16px 36px;
+}
+
+.waCta {
+  font-size: 1rem;
+  padding: 14px 30px;
+}
+
+.guarantees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.guarantees span {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+}
+
+@media (max-width: 576px) {
+  .section { padding: 60px 0; }
+  .headline { font-size: 2rem; }
+  .guarantees { gap: 12px; }
+  .guarantees span { font-size: 0.75rem; }
+}

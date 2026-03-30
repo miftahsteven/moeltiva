@@ -1,0 +1,109 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import styles from './Header.module.css';
+
+const navLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'Produk', href: '#produk' },
+  { label: 'Manfaat', href: '#manfaat' },
+  { label: 'Testimoni', href: '#testimoni' },
+  { label: 'Order', href: '#order' },
+];
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNav = (e, href) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    setActive(href);
+    const target = document.querySelector(href);
+    if (target) {
+      const headerH = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} id="header">
+      <nav className={`container ${styles.nav}`} aria-label="Main navigation">
+        {/* Logo */}
+        <a href="#home" className={styles.logo} onClick={(e) => handleNav(e, '#home')}>
+          <span className={styles.logoLeaf}>🥑</span>
+          <span>Moel<strong>tiva</strong></span>
+        </a>
+
+        {/* Desktop Links */}
+        <ul className={styles.navLinks} role="menubar">
+          {navLinks.map((link) => (
+            <li key={link.href} role="none">
+              <a
+                href={link.href}
+                role="menuitem"
+                className={`${styles.navLink} ${active === link.href ? styles.navLinkActive : ''}`}
+                onClick={(e) => handleNav(e, link.href)}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <a
+          href="#order"
+          className={`btn-moeltiva-primary ${styles.headerCta}`}
+          onClick={(e) => handleNav(e, '#order')}
+          id="header-cta-btn"
+        >
+          🛒 Beli Sekarang
+        </a>
+
+        {/* Hamburger */}
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          id="hamburger-btn"
+        >
+          <span /><span /><span />
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`} role="menu" aria-label="Mobile navigation">
+        {navLinks.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            role="menuitem"
+            className={styles.mobileLink}
+            onClick={(e) => handleNav(e, link.href)}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#order"
+          className={`btn-moeltiva-primary mt-3 ${styles.mobileCta}`}
+          onClick={(e) => handleNav(e, '#order')}
+        >
+          🛒 Beli Sekarang
+        </a>
+      </div>
+    </header>
+  );
+}

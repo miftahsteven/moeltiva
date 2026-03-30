@@ -1,0 +1,131 @@
+.section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--pale-green) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(162,196,114,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.benefitCard {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(162,196,114,0.12);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.benefitCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.benefitCard:hover .cardLine {
+  width: 100%;
+}
+
+/* Card accent line */
+.cardLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 40%;
+  border-radius: 0 4px 0 0;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card number (background decoration) */
+.cardNumber {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--pale-green);
+  line-height: 1;
+  user-select: none;
+}
+
+/* Icon */
+.cardIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+}
+
+.cardTitle {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.cardDesc {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Last 2 cards layout (wider if odd) */
+.benefitsGrid > :nth-child(4) {
+  grid-column: span 1;
+}
+
+.benefitsGrid > :nth-child(5) {
+  grid-column: span 1;
+}
+
+/* On 3-col, row 2 has only 2 items — center them */
+@media (min-width: 992px) {
+  .benefitsGrid > :nth-child(4),
+  .benefitsGrid > :nth-child(5) {
+    grid-column: auto;
+  }
+
+  .benefitsGrid:has(> :last-child:nth-child(5)) {
+    /* 5 items: 3+2, last row 2 items centered */
+  }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .section { padding: 60px 0; }
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  .benefitCard { padding: 24px 20px; }
+}

@@ -1,0 +1,186 @@
+.section {
+  padding: 100px 0;
+  background: var(--pale-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.bgDecor {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(33,87,55,0.06) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 40% at 80% 80%, rgba(246,220,67,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 60px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(162,196,114,0.15);
+}
+
+.featuredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fefae0;
+  color: #8a6c00;
+  border: 1px solid rgba(246,220,67,0.5);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Image */
+.imageCol {}
+.imageWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prodImg {
+  width: 100%;
+  height: auto;
+  max-width: 380px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+/* Content */
+.contentCol {}
+
+.prodTitle {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  color: var(--dark-green);
+  line-height: 1.25;
+  margin: 12px 0 16px;
+}
+
+.prodDesc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* Detail Grid */
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--pale-green);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(162,196,114,0.2);
+}
+
+.detailIcon {
+  font-size: 1.3rem;
+}
+
+.detailLabel {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.detailValue {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--dark-green);
+  font-weight: 700;
+}
+
+/* Price */
+.priceRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.priceOld {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark-green);
+  line-height: 1;
+}
+
+.priceNote {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.discBadge {
+  background: var(--yellow);
+  color: var(--dark-green);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* CTA */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ctaBtn { flex-shrink: 0; }
+.waBtn { flex-shrink: 0; }
+
+.shippingNote {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .card { padding: 40px 32px; }
+  .grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 576px) {
+  .section { padding: 60px 0; }
+  .card { padding: 32px 20px; border-radius: var(--radius-lg); }
+  .detailGrid { grid-template-columns: 1fr 1fr; }
+}

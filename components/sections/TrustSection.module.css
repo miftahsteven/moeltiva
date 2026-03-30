@@ -1,0 +1,68 @@
+.section {
+  padding: 40px 0;
+  background: var(--dark-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  margin: 0;
+}
+
+.logosRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.logoChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.logoChip:hover {
+  background: rgba(246, 220, 67, 0.15);
+  border-color: rgba(246, 220, 67, 0.35);
+  transform: translateY(-2px);
+}
+
+.logoIcon {
+  font-size: 1.1rem;
+}
+
+.logoName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .logosRow { gap: 10px; }
+  .logoChip {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
