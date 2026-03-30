@@ -30,31 +30,35 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--dark-green);
+  justify-content: center;
   text-decoration: none;
-  letter-spacing: -0.01em;
+  transition: transform 0.3s ease;
+  width: 200px; /* Ditambah agar teks moeltiva tidak terpotong */
+  height: 54px;
+  overflow: hidden;
+  position: relative;
 }
 
-.logo strong {
-  font-weight: 800;
+.logoImg {
+  height: 120px; /* Ukuran dasar disesuaikan agar zoom lebih presisi */
+  width: auto;
+  transition: all 0.4s ease;
+  display: block;
+  transform: scale(1.8); /* Zoom diperhalus agar teks pas masuk bingkai */
+  object-fit: contain;
 }
 
-.logoLeaf {
-  font-size: 1.6rem;
-  display: inline-block;
-  transition: transform 0.4s ease;
+.header.scrolled .logo {
+  height: 46px;
 }
 
-.logo:hover .logoLeaf {
-  transform: rotate(-15deg) scale(1.2);
+.header.scrolled .logoImg {
+  height: 100px;
+  transform: scale(1.6);
 }
 
 .logo:hover {
-  color: var(--dark-green);
-  text-decoration: none;
+  transform: translateY(-1px) scale(1.02);
 }
 
 /* Nav Links */

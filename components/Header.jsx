@@ -41,8 +41,11 @@ export default function Header() {
       <nav className={`container ${styles.nav}`} aria-label="Main navigation">
         {/* Logo */}
         <a href="#home" className={styles.logo} onClick={(e) => handleNav(e, '#home')}>
-          <span className={styles.logoLeaf}>🥑</span>
-          <span>Moel<strong>tiva</strong></span>
+          <img
+            src="/logo.png"
+            alt="Moeltiva Logo"
+            className={styles.logoImg}
+          />
         </a>
 
         {/* Desktop Links */}
