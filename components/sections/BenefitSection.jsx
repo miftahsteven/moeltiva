@@ -4,35 +4,35 @@ import styles from './BenefitSection.module.css';
 
 const benefits = [
   {
-    icon: '⚡',
-    title: 'Energi Alami Tanpa Efek Samping',
-    desc: 'Nikmati energi sepanjang hari dari lemak sehat alpukat — tanpa kafein, tanpa jantung berdebar.',
-    color: '#F6DC43',
-  },
-  {
-    icon: '🥗',
-    title: 'Mendukung Diet Sehat',
-    desc: 'Kandungan serat dan lemak baik membantu menjaga rasa kenyang lebih lama dan mendukung manajemen berat badan.',
-    color: '#A2C472',
-  },
-  {
-    icon: '⏱️',
-    title: 'Praktis & Cepat',
-    desc: 'Cukup larutkan satu sachet dalam air dan minuman sehatmu sudah siap dalam hitungan detik.',
-    color: '#215737',
-  },
-  {
-    icon: '😋',
-    title: 'Rasa Enak & Creamy',
-    desc: 'Rasa alpukat asli yang lezat dan creamy — seperti minum alpukat segar setiap hari.',
+    icon: '🌾',
+    title: 'Tinggi Serat',
+    desc: 'Membantu rasa kenyang lebih lama dan menjaga kesehatan pencernaan, sehingga cocok dikonsumsi sebagai minuman fungsional.',
     color: '#F6DC43',
   },
   {
     icon: '🌱',
-    title: '100% Bahan Alami',
-    desc: 'Tidak ada bahan pengawet, pewarna buatan, atau pemanis sintetis. Murni kebaikan dari alam.',
+    title: '+1000 mg kolagen',
+    desc: 'Memberikan manfaat tambahan untuk kesehatan kulit dan jaringan tubuh. (fungsi yang tidak ditemukan secara alami pada alpukat segar).',
     color: '#A2C472',
   },
+  {
+    icon: '⚡',
+    title: 'Vitamin C, vitamin B kompleks, vitamin D, dan Zinc',
+    desc: 'Mendukung daya tahan tubuh dan metabolisme harian, terutama untuk konsumen dengan aktivitas tinggi dan waktu makan yang terbatas, serta membantu penyerapan kolagen lebih optimal.',
+    color: '#215737',
+  },
+  // {
+  //   icon: '😋',
+  //   title: 'Rasa Enak & Creamy',
+  //   desc: 'Rasa alpukat asli yang lezat dan creamy — seperti minum alpukat segar setiap hari.',
+  //   color: '#F6DC43',
+  // },
+  // {
+  //   icon: '🌱',
+  //   title: '100% Bahan Alami',
+  //   desc: 'Tidak ada bahan pengawet, pewarna buatan, atau pemanis sintetis. Murni kebaikan dari alam.',
+  //   color: '#A2C472',
+  // },
 ];
 
 export default function BenefitSection() {
@@ -41,7 +41,7 @@ export default function BenefitSection() {
       <div className="container">
         {/* Header */}
         <div className={`text-center mb-5 reveal`}>
-          <div className="section-label mb-2">✦ Mengapa Moeltiva?</div>
+          <div className="section-label mb-2">✦ Manfaat</div>
           <h2 className="section-title">Kenapa Pilih Moeltiva?</h2>
           <p className="section-subtitle">
             Lebih dari sekadar minuman — Moeltiva adalah komitmen untuk gaya hidupmu yang lebih sehat.

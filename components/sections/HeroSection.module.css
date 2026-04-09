@@ -167,6 +167,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .imageBg {
@@ -280,6 +281,26 @@
 
   .imageCol {
     order: 0;
+    margin-top: -50px; /* Pull image up closer to logo */
+    width: 100%;
+    padding: 0;
+  }
+
+  .productImg {
+    border-radius: 0; /* Removing radius for a fuller edge look like Hotto */
+    width: 100%;
+    transform: scale(1.1); /* Make it bigger */
+  }
+
+  .textCol {
+    max-width: 100%;
+    order: 1;
+    margin-top: -140px; /* Overlap the image bottom */
+    position: relative;
+    z-index: 5;
+    background: linear-gradient(to bottom, transparent, var(--cream) 40%); /* Smooth transition from image to text */
+    padding-top: 60px;
+    padding-bottom: 20px;
   }
 
   .miniProof {
@@ -313,7 +334,26 @@
   .floatCard { display: none; }
 
   .imageBg {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .headline {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .subheadline {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .ctas {
+    gap: 12px;
   }
 }

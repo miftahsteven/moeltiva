@@ -34,7 +34,7 @@ export default function ProductDetailSection() {
             <div className={`${styles.imageCol} reveal-left`}>
               <div className={styles.imageWrap}>
                 <img
-                  src="/product-hero.png"
+                  src="/moeltiva-images/detail1.JPG"
                   alt="Moeltiva Avocado Powder Drink box — 10 sachet per box"
                   className={styles.prodImg}
                 />

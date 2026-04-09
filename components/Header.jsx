@@ -7,8 +7,10 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Produk', href: '#produk' },
   { label: 'Manfaat', href: '#manfaat' },
-  { label: 'Testimoni', href: '#testimoni' },
-  { label: 'Order', href: '#order' },
+  // { label: 'Testimoni', href: '#testimoni' },
+  { label: 'Story', href: '#story' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Find Us', href: '#find-us' },
 ];
 
 export default function Header() {

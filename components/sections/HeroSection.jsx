@@ -21,24 +21,25 @@ export default function HeroSection() {
         <div className={styles.grid}>
           {/* Left — Text */}
           <div className={`${styles.textCol} reveal-left`}>
-            <div className="badge-green mb-3">🌿 100% Bahan Alami</div>
+            <div className="badge-green mb-3">🌿 100% Real Fruit</div>
 
             <h1 className={styles.headline}>
-              Hidup Sehat<br />
-              <span className={styles.highlight}>dari Alam,</span><br />
-              Lebih Mudah.
+              Moeltiva<br />
+              <span className={styles.highlight}>Juice Daily,</span><br />
+              Glow Naturally.
             </h1>
 
             <p className={styles.subheadline}>
-              Minuman serbuk ekstrak alpukat untuk energi alami harianmu.
-              Praktis, lezat, dan penuh nutrisi dari alam Indonesia.
+              Daily fruit juice made from real fruit, enriched with fiber,
+              collagen, vitamin C, & zinc
+
             </p>
 
             {/* Badges */}
             <div className={styles.badges}>
-              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Vegan Friendly</span>
-              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Tanpa Pengawet</span>
-              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Made in Indonesia</span>
+              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Avocado fruit extract</span>
+              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Vitamin C</span>
+              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Zinc</span>
             </div>
 
             {/* CTAs */}
@@ -46,7 +47,7 @@ export default function HeroSection() {
               <button
                 id="hero-buy-btn"
                 className="btn-moeltiva-primary pulse-yellow"
-                onClick={() => handleScroll('#order')}
+                onClick={() => handleScroll('#find-us')}
               >
                 🛒 Beli Sekarang
               </button>
@@ -61,7 +62,7 @@ export default function HeroSection() {
 
             {/* Social proof mini */}
             <div className={styles.miniProof}>
-              <div className={styles.avatarRow}>
+              {/* <div className={styles.avatarRow}>
                 {['🙋‍♀️', '🙋‍♂️', '🙋‍♀️'].map((e, i) => (
                   <span key={i} className={styles.avatar}>{e}</span>
                 ))}
@@ -69,7 +70,7 @@ export default function HeroSection() {
               <div>
                 <p className={styles.proofText}><strong>2.000+</strong> pelanggan puas</p>
                 <div className={styles.stars}>★★★★★ 4.9</div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -78,7 +79,7 @@ export default function HeroSection() {
             <div className={styles.imageBg} aria-hidden="true" />
             <div className={`${styles.imageWrap} float-anim`}>
               <img
-                src="/product-hero.png"
+                src="/moeltiva-images/hero1.JPG"
                 alt="Moeltiva Avocado Powder Drink — produk minuman serbuk ekstrak alpukat premium"
                 className={styles.productImg}
               />
@@ -88,16 +89,16 @@ export default function HeroSection() {
             <div className={`${styles.floatCard} ${styles.floatCard1} float-slow`}>
               <span className={styles.floatIcon}>🥑</span>
               <div>
-                <strong>Ekstrak Alpukat</strong>
-                <p>Lemak sehat & Vitamin E</p>
+                <strong>+1000 mg kolagen</strong>
+                <p>Hidrasi & elastisitas kulit</p>
               </div>
             </div>
 
             <div className={`${styles.floatCard} ${styles.floatCard2} float-slow`} style={{ animationDelay: '1.5s' }}>
               <span className={styles.floatIcon}>⚡</span>
               <div>
-                <strong>Energi Alami</strong>
-                <p>Tanpa efek samping</p>
+                <strong>Tinggi serat</strong>
+                <p>Mengandung serat alami</p>
               </div>
             </div>
           </div>

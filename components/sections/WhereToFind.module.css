@@ -1,0 +1,170 @@
+.section {
+  padding: 100px 0;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--dark-green);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Base card style */
+.cardBlock {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 40px 30px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(162, 196, 114, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Marketplaces */
+.marketRow {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.marketItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  transition: var(--transition);
+  width: 160px;
+}
+
+.marketItem:hover {
+  transform: translateY(-8px);
+}
+
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  background: white;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 4px 16px rgba(33, 87, 55, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 1px solid rgba(162, 196, 114, 0.2);
+}
+
+.marketLogo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.marketName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 4px;
+}
+
+.handle {
+  font-size: 0.85rem;
+  color: var(--light-green);
+  font-weight: 500;
+}
+
+/* Certifications */
+.certSection {
+  text-align: center;
+  border-top: 1px solid rgba(33, 87, 55, 0.1);
+  padding-top: 40px;
+}
+
+.certTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.certStripWrap {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.certStrip {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .marketRow {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .cardBlock {
+    padding: 30px 15px;
+  }
+
+  .marketRow {
+    gap: 16px;
+  }
+
+  .marketItem {
+    width: 120px;
+  }
+
+  .iconWrap {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marketRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .marketItem {
+    width: auto;
+  }
+}
