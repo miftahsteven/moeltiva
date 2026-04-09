@@ -15,7 +15,7 @@
 }
 
 .upgradeContent {
-  max-width: 520px;
+  max-width: 600px;
 }
 
 .title {
@@ -28,6 +28,10 @@
 
 .highlight {
   color: var(--light-green);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .list {

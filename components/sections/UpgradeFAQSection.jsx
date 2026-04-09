@@ -40,8 +40,9 @@ export default function UpgradeFAQSection() {
         <div className={styles.upgradeRow}>
           <div className={`${styles.upgradeContent} reveal-left`}>
             <h2 className={styles.title}>
-              Moeltiva meng-upgrade <br />
-              <span className={styles.highlight}>cara menikmati alpukat.</span>
+              <span className={styles.nowrap}>Moeltiva mengupgrade</span> <br />
+              cara menikmati <br />
+              <span className={styles.highlight}>alpukat</span>
             </h2>
 
             <div className={styles.list}>
