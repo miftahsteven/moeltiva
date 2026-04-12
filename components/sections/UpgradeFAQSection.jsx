@@ -6,11 +6,11 @@ import styles from './UpgradeFAQSection.module.css';
 const faqs = [
   {
     question: 'Apakah Moeltiva menggunakan gula tambahan?',
-    answer: 'Moeltiva tidak menggunakan gula pasir. Kami menggunakan pemanis alami Stevia yang memiliki nol kalori, sehingga lebih sehat dan aman dikonsumsi setiap hari tanpa khawatir lonjakan gula darah.'
+    answer: 'Moeltiva menggunakan Stevia, pemanis alami yang memiliki nol kalori, sehingga lebih sehat dan aman dikonsumsi setiap hari tanpa khawatir lonjakan gula darah. Tidak menggunakan gula pasir.'
   },
   {
     question: 'Apakah Moeltiva aman untuk penderita asam lambung?',
-    answer: 'Ya, sangat aman. Alpukat secara alami bersifat basa yang dapat membantu menetralkan asam lambung. Moeltiva juga bebas pengawet dan bahan kimia yang biasanya memicu iritasi lambung.'
+    answer: 'Ya, sangat aman. Alpukat secara alami dapat membantu menetralkan asam lambung. Moeltiva juga bebas pengawet dan bahan kimia yang biasanya memicu iritasi lambung.'
   },
   {
     question: 'Kapan waktu terbaik untuk mengonsumsi Moeltiva?',
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: 'Apakah anak-anak boleh mengonsumsi Moeltiva?',
-    answer: 'Tentu saja. Moeltiva kaya akan nutrisi, serat, dan vitamin yang sangat baik untuk masa pertumbuhan anak-anak sebagai alternatif minuman bernutrisi yang lezat.'
+    answer: 'Tentu saja. Moeltiva kaya akan nutrisi, serat, dan vitamin yang sangat baik untuk masa pertumbuhan anak-anak sebagai alternatif minuman bernutrisi yang lezat. Cocok sebagai bekal minuman bernutrisi bagi Anak.'
   },
   {
     question: 'Bagaimana cara penyajian Moeltiva yang paling nikmat?',
@@ -45,39 +45,41 @@ export default function UpgradeFAQSection() {
               <span className={styles.highlight}>alpukat</span>
             </h2>
 
-            <div className={styles.list}>
-              <div className={styles.listGroup}>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✕</span>
-                  <span>Tanpa menunggu musimnya.</span>
-                </div>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✕</span>
-                  <span>Tanpa repot memilih buah.</span>
-                </div>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✕</span>
-                  <span>Tanpa takut busuk.</span>
-                </div>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✕</span>
-                  <span>Tanpa proses ribet.</span>
-                </div>
+            {/* Solution chips — keunggulan Moeltiva */}
+            <div className={styles.solutionPoints}>
+              <div className={styles.solutionLabel}>Dengan Moeltiva...</div>
+              <div className={styles.solutionGrid}>
+                {[
+                  { icon: '☕', text: 'Cukup diseduh' },
+                  { icon: '🥑', text: 'Rasa konsisten segar' },
+                  { icon: '⚡', text: 'Siap kapan saja' },
+                  { icon: '📦', text: 'Simpan lebih lama' },
+                ].map((item) => (
+                  <div key={item.text} className={styles.solutionChip}>
+                    <span className={styles.solutionCheck}>✓</span>
+                    <span className={styles.solutionIcon}>{item.icon}</span>
+                    <span className={styles.solutionText}>{item.text}</span>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              <div className={styles.listGroup}>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✓</span>
-                  <span><strong>Cukup diseduh.</strong></span>
-                </div>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✓</span>
-                  <span>Rasa dan teksturnya konsisten seperti jus alpukat segar.</span>
-                </div>
-                <div className={styles.listItem}>
-                  <span className={styles.checkIcon}>✓</span>
-                  <span>Praktis dikonsumsi kapan saja, dengan umur simpan yang lebih panjang.</span>
-                </div>
+            {/* Pain chips — desktop only, di bawah solution chips */}
+            <div className={styles.painPointsDesktop}>
+              <div className={styles.painLabel}>Tidak lagi...</div>
+              <div className={styles.painGrid}>
+                {[
+                  { icon: '⏳', text: 'Menunggu musim' },
+                  { icon: '🛒', text: 'Repot pilih buah' },
+                  { icon: '🗑️', text: 'Takut busuk' },
+                  { icon: '🔪', text: 'Proses ribet' },
+                ].map((item) => (
+                  <div key={item.text} className={styles.painChip}>
+                    <span className={styles.painX}>✕</span>
+                    <span className={styles.painIcon}>{item.icon}</span>
+                    <span className={styles.painText}>{item.text}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -89,6 +91,25 @@ export default function UpgradeFAQSection() {
                 alt="Moeltiva premium avocado powder drink packaging"
                 className={styles.productImg}
               />
+            </div>
+
+            {/* Pain chips — mobile only, di bawah gambar */}
+            <div className={styles.painPointsMobile}>
+              <div className={styles.painLabel}>Tidak lagi...</div>
+              <div className={styles.painGrid}>
+                {[
+                  { icon: '⏳', text: 'Menunggu musim' },
+                  { icon: '🛒', text: 'Repot pilih buah' },
+                  { icon: '🗑️', text: 'Takut busuk' },
+                  { icon: '🔪', text: 'Proses ribet' },
+                ].map((item) => (
+                  <div key={item.text} className={styles.painChip}>
+                    <span className={styles.painX}>✕</span>
+                    <span className={styles.painIcon}>{item.icon}</span>
+                    <span className={styles.painText}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

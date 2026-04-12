@@ -25,7 +25,7 @@ export default function HeroSection() {
 
             <h1 className={styles.headline}>
               Moeltiva<br />
-              <span className={styles.highlight}>Juice Daily,</span><br />
+              <span className={styles.highlight}>Easy healthy,</span><br />
               Glow Naturally.
             </h1>
 
@@ -38,6 +38,8 @@ export default function HeroSection() {
             {/* Badges */}
             <div className={styles.badges}>
               <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Avocado fruit extract</span>
+              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Collagen</span>
+              <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Fiber</span>
               <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Vitamin C</span>
               <span className={styles.badge}><span className={styles.badgeIcon}>✓</span> Zinc</span>
             </div>

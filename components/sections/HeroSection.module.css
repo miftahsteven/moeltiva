@@ -89,22 +89,25 @@
 /* Badges */
 .badges {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
   margin-bottom: 32px;
+  overflow: hidden;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: rgba(162, 196, 114, 0.15);
   border: 1px solid rgba(162, 196, 114, 0.4);
   color: var(--dark-green);
   border-radius: 50px;
-  padding: 6px 14px;
-  font-size: 0.82rem;
+  padding: 5px 10px;
+  font-size: 0.75rem;
   font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badgeIcon {
@@ -312,6 +315,7 @@
   }
 
   .badges {
+    flex-wrap: wrap;
     justify-content: center;
   }
 

@@ -3,18 +3,18 @@
 import styles from './WhereToFind.module.css';
 
 const marketplaces = [
-  {
-    name: 'Shopee',
-    handle: 'moeltiva.id',
-    link: 'https://shopee.co.id/moeltiva.id',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg'
-  },
-  {
-    name: 'Tokopedia',
-    handle: 'moeltiva.id',
-    link: 'https://www.tokopedia.com/moeltiva.id',
-    logo: '/moeltiva-images/tokopedia.png'
-  },
+  // {
+  //   name: 'Shopee',
+  //   handle: 'moeltiva.id',
+  //   link: 'https://shopee.co.id/moeltiva.id',
+  //   logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg'
+  // },
+  // {
+  //   name: 'Tokopedia',
+  //   handle: 'moeltiva.id',
+  //   link: 'https://www.tokopedia.com/moeltiva.id',
+  //   logo: '/moeltiva-images/tokopedia.png'
+  // },
   {
     name: 'Instagram',
     handle: 'moeltiva.id',

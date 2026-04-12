@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ScrollReveal from '@/components/ScrollReveal';
+import AvocadoIntro from '@/components/AvocadoIntro';
 import HeroSection from '@/components/sections/HeroSection';
 import ProductShowcase from '@/components/sections/ProductShowcase';
 import TrustSection from '@/components/sections/TrustSection';
@@ -16,6 +17,9 @@ import UpgradeFAQSection from '@/components/sections/UpgradeFAQSection';
 export default function HomePage() {
   return (
     <>
+      {/* Avocado Intro Pre-Screen */}
+      <AvocadoIntro />
+
       {/* Navigation */}
       <Header />
 
