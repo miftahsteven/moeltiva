@@ -13,6 +13,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* dvh = dynamic viewport height — akurat di Safari iOS (tidak termasuk browser chrome) */
+  height: 100dvh;
+  height: 100vh; /* fallback untuk browser lama */
+  height: 100dvh;
 
   /* Exit animation */
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
@@ -381,60 +385,84 @@
    MOBILE RESPONSIVE
    ══════════════════════════════════════ */
 @media (max-width: 480px) {
-  .content {
-    padding: 24px 20px 80px;
+  .overlay {
+    /* Kritis: dvh memperhitungkan address bar Safari/Chrome mobile */
+    height: 100dvh;
+    overflow-y: auto; /* fallback jika konten masih melebihi tinggi layar */
     justify-content: flex-start;
-    padding-top: max(60px, env(safe-area-inset-top, 40px));
+  }
+
+  .content {
+    /* space-between mendorong button ke bawah visible area */
+    justify-content: space-between;
+    min-height: 100%;
+    padding: 0 20px;
+    padding-top: max(56px, env(safe-area-inset-top, 36px));
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 16px));
+    box-sizing: border-box;
+    gap: 0;
   }
 
   .emojiHero {
-    font-size: 4rem;
-    margin-bottom: 14px;
+    font-size: 3rem;
+    margin-bottom: 8px;
   }
 
   .chip {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     padding: 4px 12px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .headline {
-    font-size: 1.75rem;
-    margin-bottom: 14px;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .divider {
+    margin: 0 auto 12px;
   }
 
   .body {
-    font-size: 0.88rem;
-    line-height: 1.75;
-    margin-bottom: 20px;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
   }
 
   .stats {
-    margin-bottom: 28px;
+    margin-bottom: 14px;
     max-width: 100%;
   }
 
   .stat {
-    padding: 12px 6px;
+    padding: 10px 4px;
+  }
+
+  .statIcon {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
   }
 
   .statValue {
-    font-size: 0.8rem;
+    font-size: 0.74rem;
   }
 
   .statLabel {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
   }
 
   .btn {
     width: 100%;
     justify-content: center;
-    padding: 16px 32px;
+    padding: 15px 32px;
     font-size: 0.95rem;
+    /* Pastikan button tidak terpotong di bawah */
+    flex-shrink: 0;
   }
 
   .skip {
-    top: 14px;
+    top: max(14px, env(safe-area-inset-top, 10px));
     right: 14px;
     font-size: 0.7rem;
     padding: 6px 12px;
