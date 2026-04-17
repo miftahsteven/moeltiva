@@ -1,18 +1,27 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import api from '@/services/api';
 import styles from './WhatsAppButton.module.css';
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 1500);
+    
+    api.get(`/profile`)
+      .then(res => setProfile(res.data))
+      .catch(err => console.error(err));
+
     return () => clearTimeout(timer);
   }, []);
 
+  if (!profile) return null;
+
   const waMessage = encodeURIComponent('Halo Moeltiva! Saya ingin bertanya tentang produk Anda. 🥑');
-  const waUrl = `https://wa.me/6281234567890?text=${waMessage}`;
+  const waUrl = `https://wa.me/${profile.whatsapp || '6281234567890'}?text=${waMessage}`;
 
   return (
     <a

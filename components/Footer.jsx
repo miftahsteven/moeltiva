@@ -1,12 +1,31 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import api from '@/services/api';
 import styles from './Footer.module.css';
 
-const socials = [
-  { name: 'Instagram', icon: '📸', href: 'https://instagram.com/moeltiva' },
-  { name: 'TikTok', icon: '🎵', href: 'https://tiktok.com/@moeltiva' },
-  { name: 'Facebook', icon: '📘', href: 'https://facebook.com/moeltiva' },
-];
-
 export default function Footer() {
+  const [footerData, setFooterData] = useState(null);
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    Promise.all([
+      api.get(`/footer`),
+      api.get(`/profile`)
+    ]).then(([footerRes, profileRes]) => {
+      setFooterData(footerRes.data);
+      setProfileData(profileRes.data);
+    }).catch(err => console.error(err));
+  }, []);
+
+  if (!footerData || !profileData) return null;
+
+  const socials = [
+    { name: 'Instagram', icon: '📸', href: profileData.instagramUrl },
+    { name: 'TikTok', icon: '🎵', href: profileData.tiktokUrl },
+    { name: 'Facebook', icon: '📘', href: profileData.facebookUrl },
+  ].filter(s => s.href);
+
   return (
     <footer className={styles.footer} role="contentinfo">
       <div className="container">
@@ -15,14 +34,13 @@ export default function Footer() {
           <div className={styles.brandCol}>
             <div className={styles.logo}>
               <span>🥑</span>
-              <strong>Moeltiva</strong>
+              <strong>{profileData.companyName || 'Moeltiva'}</strong>
             </div>
             <p className={styles.tagline}>
-              Hidup sehat dari alam, lebih mudah.
+              {footerData.subtitle}
             </p>
             <p className={styles.desc}>
-              Moeltiva adalah minuman serbuk ekstrak alpukat premium untuk energi alami harianmu.
-              100% bahan alami, vegan friendly, tanpa pengawet.
+              {footerData.description}
             </p>
             <div className={styles.socials}>
               {socials.map((s) => (
@@ -59,15 +77,15 @@ export default function Footer() {
             <ul className={styles.contactList}>
               <li>
                 <span className={styles.contactIcon}>📞</span>
-                <a href="tel:+6281234567890" className={styles.link}>+62 812-3456-7890</a>
+                <a href={`tel:${profileData.phone}`} className={styles.link}>{profileData.phone}</a>
               </li>
               <li>
                 <span className={styles.contactIcon}>📧</span>
-                <a href="mailto:hello@moeltiva.id" className={styles.link}>hello@moeltiva.id</a>
+                <a href={`mailto:${profileData.email}`} className={styles.link}>{profileData.email}</a>
               </li>
               <li>
                 <span className={styles.contactIcon}>📍</span>
-                <span className={styles.linkText}>Jakarta, Indonesia</span>
+                <span className={styles.linkText}>{profileData.address}</span>
               </li>
               <li>
                 <span className={styles.contactIcon}>⏰</span>
@@ -80,7 +98,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            © {new Date().getFullYear()} Moeltiva. All rights reserved. Made with 🥑 in Indonesia.
+            © {new Date().getFullYear()} {profileData.companyName}. All rights reserved. Made with 🥑 in Indonesia.
           </p>
           <div className={styles.bottomLinks}>
             <a href="#" className={styles.bottomLink}>Kebijakan Privasi</a>

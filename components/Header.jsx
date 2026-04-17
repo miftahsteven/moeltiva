@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import api from '@/services/api';
 import styles from './Header.module.css';
 
 const navLinks = [
@@ -18,11 +19,16 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState('');
 
+  const [profile, setProfile] = useState(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
+
+    api.get(`/profile`).then(res => setProfile(res.data));
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
