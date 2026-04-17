@@ -25,6 +25,26 @@ export default function UpgradeFAQSection() {
   if (loading) return null;
   if (!data) return null;
 
+  const painPointsBlock = (
+    <>
+      <div className={styles.painLabel}>Tidak lagi...</div>
+      <div className={styles.painGrid}>
+        {[
+          { icon: '⏳', text: 'Menunggu musim' },
+          { icon: '🛒', text: 'Repot pilih buah' },
+          { icon: '🗑️', text: 'Takut busuk' },
+          { icon: '🔪', text: 'Proses ribet' },
+        ].map((item) => (
+          <div key={item.text} className={styles.painChip}>
+            <span className={styles.painX}>✕</span>
+            <span className={styles.painIcon}>{item.icon}</span>
+            <span className={styles.painText}>{item.text}</span>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+
   return (
     <section id="faq" className={styles.section} aria-label="Upgrade and FAQ section">
       <div className="container">
@@ -52,21 +72,7 @@ export default function UpgradeFAQSection() {
             </div>
 
             <div className={styles.painPointsDesktop}>
-              <div className={styles.painLabel}>Tidak lagi...</div>
-              <div className={styles.painGrid}>
-                {[
-                  { icon: '⏳', text: 'Menunggu musim' },
-                  { icon: '🛒', text: 'Repot pilih buah' },
-                  { icon: '🗑️', text: 'Takut busuk' },
-                  { icon: '🔪', text: 'Proses ribet' },
-                ].map((item) => (
-                  <div key={item.text} className={styles.painChip}>
-                    <span className={styles.painX}>✕</span>
-                    <span className={styles.painIcon}>{item.icon}</span>
-                    <span className={styles.painText}>{item.text}</span>
-                  </div>
-                ))}
-              </div>
+              {painPointsBlock}
             </div>
           </div>
 
@@ -78,6 +84,10 @@ export default function UpgradeFAQSection() {
                 className={styles.productImg}
               />
             </div>
+          </div>
+
+          <div className={styles.painPointsMobile}>
+            {painPointsBlock}
           </div>
         </div>
 
