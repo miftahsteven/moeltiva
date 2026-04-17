@@ -18,4 +18,21 @@ adminApi.interceptors.request.use((config) => {
   return config;
 });
 
+// Response interceptor to handle expired tokens
+adminApi.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 403) {
+      // Token expired or invalid
+      console.warn("Session expired. Redirecting to login...");
+      localStorage.removeItem("adminToken");
+      localStorage.removeItem("adminUser");
+      if (typeof window !== "undefined") {
+        window.location.href = "/admin/login";
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default adminApi;

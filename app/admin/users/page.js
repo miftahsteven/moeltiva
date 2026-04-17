@@ -94,7 +94,7 @@ export default function AdminUsersPage() {
           <tr style={{ textAlign: 'left', borderBottom: '2px solid #f4f5f7' }}>
             <th style={{ padding: '12px' }}>Email</th>
             <th style={{ padding: '12px' }}>Role</th>
-            <th style={{ padding: '12px' }}>MFA Status</th>
+            {/* <th style={{ padding: '12px' }}>MFA Status</th> */}
             <th style={{ padding: '12px' }}>Actions</th>
           </tr>
         </thead>
@@ -114,12 +114,12 @@ export default function AdminUsersPage() {
                   {user.role}
                 </span>
               </td>
-              <td style={{ padding: '12px' }}>
+              {/* <td style={{ padding: '12px' }}>
                 {user.mfaEnabled ? '✅ Enabled' : '❌ Disabled'}
-              </td>
+              </td> */}
               <td style={{ padding: '12px', display: 'flex', gap: '8px' }}>
                 <button className="admin-btn-primary" style={{ padding: '5px 8px', fontSize: '0.75rem' }} onClick={() => setEditingUser(user)}>Edit</button>
-                <button className="admin-btn-primary" style={{ padding: '5px 8px', fontSize: '0.75rem', background: '#3f4254' }} onClick={() => handleResetMfa(user.id)} title="Reset Google Authenticator">Reset MFA</button>
+                {/* <button className="admin-btn-primary" style={{ padding: '5px 8px', fontSize: '0.75rem', background: '#3f4254' }} onClick={() => handleResetMfa(user.id)} title="Reset Google Authenticator">Reset MFA</button> */}
                 <button className="admin-btn-primary" style={{ padding: '5px 8px', fontSize: '0.75rem', background: '#f64e60' }} onClick={() => handleDeleteUser(user.id)}>Delete</button>
               </td>
             </tr>

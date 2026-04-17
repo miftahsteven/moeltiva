@@ -6,20 +6,20 @@ import styles from './AvocadoIntro.module.css';
 const SESSION_KEY = 'moeltiva_avocado_seen';
 
 const PARTICLES = [
-  { icon: '🌿', left: '8%',  delay: '0s',   dur: '14s' },
-  { icon: '🥑', left: '20%', delay: '2s',   dur: '11s' },
-  { icon: '✨', left: '35%', delay: '5s',   dur: '13s' },
-  { icon: '🌿', left: '52%', delay: '1s',   dur: '16s' },
+  { icon: '🌿', left: '8%', delay: '0s', dur: '14s' },
+  { icon: '🥑', left: '20%', delay: '2s', dur: '11s' },
+  { icon: '✨', left: '35%', delay: '5s', dur: '13s' },
+  { icon: '🌿', left: '52%', delay: '1s', dur: '16s' },
   { icon: '🍃', left: '67%', delay: '3.5s', dur: '12s' },
-  { icon: '🥑', left: '80%', delay: '6s',   dur: '15s' },
+  { icon: '🥑', left: '80%', delay: '6s', dur: '15s' },
   { icon: '✨', left: '92%', delay: '0.5s', dur: '10s' },
 ];
 
 const STATS = [
   { icon: '💚', value: '20+ Nutrisi', label: 'Alami' },
-  { icon: '🫀', value: 'Jantung',     label: 'Sehat' },
+  { icon: '🫀', value: 'Jantung', label: 'Sehat' },
   { icon: '✨', value: 'Antioksidan', label: 'Tinggi' },
-  { icon: '🧠', value: 'Otak',        label: 'Vitality' },
+  { icon: '🧠', value: 'Otak', label: 'Vitality' },
 ];
 
 export default function AvocadoIntro() {
@@ -54,7 +54,7 @@ export default function AvocadoIntro() {
       aria-label="Kenali Alpukat — Natural Superfood"
     >
       {/* Animated blobs */}
-      <div className={`${styles.blob} ${styles.blobTop}`}    aria-hidden="true" />
+      <div className={`${styles.blob} ${styles.blobTop}`} aria-hidden="true" />
       <div className={`${styles.blob} ${styles.blobBottom}`} aria-hidden="true" />
       <div className={`${styles.blob} ${styles.blobCenter}`} aria-hidden="true" />
 
@@ -86,7 +86,7 @@ export default function AvocadoIntro() {
         onClick={handleDismiss}
         aria-label="Lewati intro"
       >
-        Lewati ✕
+        Lewatisss ✕
       </button>
 
       {/* Main content */}

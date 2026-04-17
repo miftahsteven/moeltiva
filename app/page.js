@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       {/* Avocado Intro Pre-Screen */}
-      <AvocadoIntro />
+      {/* <AvocadoIntro /> */}
 
       {/* Navigation */}
       <Header />

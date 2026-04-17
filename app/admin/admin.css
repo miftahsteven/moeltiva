@@ -25,11 +25,21 @@
   color: var(--admin-sidebar-text);
   display: flex;
   flex-direction: column;
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
+  bottom: 0;
   height: 100vh;
   box-shadow: 4px 0 10px rgba(0,0,0,0.1);
   z-index: 100;
+}
+
+.admin-main {
+  flex: 1;
+  margin-left: 265px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .admin-logo {
@@ -54,6 +64,7 @@
 .admin-nav {
   padding: 20px 0;
   flex: 1;
+  overflow-y: auto; /* Allow scrolling if menu is long */
 }
 
 .nav-item {
@@ -86,6 +97,8 @@
 .admin-footer-nav {
   padding: 20px;
   border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: auto; /* Push to bottom of flex container */
+  background-color: var(--admin-sidebar-bg); /* Match sidebar background */
 }
 
 .btn-logout {
