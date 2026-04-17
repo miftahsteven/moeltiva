@@ -7,8 +7,10 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Produk', href: '#produk' },
   { label: 'Manfaat', href: '#manfaat' },
-  { label: 'Testimoni', href: '#testimoni' },
-  { label: 'Order', href: '#order' },
+  // { label: 'Testimoni', href: '#testimoni' },
+  { label: 'Story', href: '#story' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Find Us', href: '#find-us' },
 ];
 
 export default function Header() {
@@ -41,8 +43,11 @@ export default function Header() {
       <nav className={`container ${styles.nav}`} aria-label="Main navigation">
         {/* Logo */}
         <a href="#home" className={styles.logo} onClick={(e) => handleNav(e, '#home')}>
-          <span className={styles.logoLeaf}>🥑</span>
-          <span>Moel<strong>tiva</strong></span>
+          <img
+            src="/logo.png"
+            alt="Moeltiva Logo"
+            className={styles.logoImg}
+          />
         </a>
 
         {/* Desktop Links */}

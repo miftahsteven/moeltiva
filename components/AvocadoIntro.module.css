@@ -1,0 +1,470 @@
+/* ===================================================
+   AvocadoIntro — Full-Screen Pre-Screen
+   Mobile-first, premium brand experience
+   =================================================== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0d2115;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* dvh = dynamic viewport height — akurat di Safari iOS (tidak termasuk browser chrome) */
+  height: 100dvh;
+  height: 100vh; /* fallback untuk browser lama */
+  height: 100dvh;
+
+  /* Exit animation */
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay.exit {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* ── Ambient background blobs ── */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  will-change: transform;
+  animation: blobPulse 8s ease-in-out infinite alternate;
+}
+
+.blobTop {
+  width: 60vw;
+  height: 60vw;
+  max-width: 520px;
+  max-height: 520px;
+  background: radial-gradient(circle, #2d6e47 0%, transparent 70%);
+  top: -20%;
+  right: -15%;
+  opacity: 0.55;
+  animation-delay: 0s;
+}
+
+.blobBottom {
+  width: 50vw;
+  height: 50vw;
+  max-width: 420px;
+  max-height: 420px;
+  background: radial-gradient(circle, #a2c472 0%, transparent 70%);
+  bottom: -15%;
+  left: -10%;
+  opacity: 0.3;
+  animation-delay: 3s;
+}
+
+.blobCenter {
+  width: 40vw;
+  height: 40vw;
+  max-width: 300px;
+  max-height: 300px;
+  background: radial-gradient(circle, #f6dc43 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.06;
+  animation-delay: 1.5s;
+}
+
+@keyframes blobPulse {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(2%, 3%); }
+}
+
+/* ── Decorative leaf particles ── */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0;
+  animation: particleFall linear infinite;
+}
+
+@keyframes particleFall {
+  0%   { opacity: 0; transform: translateY(-60px) rotate(0deg); }
+  10%  { opacity: 0.35; }
+  90%  { opacity: 0.35; }
+  100% { opacity: 0; transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ── Grid line overlay (subtle texture) ── */
+.grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(162, 196, 114, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(162, 196, 114, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Main content wrapper ── */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ── Avocado emoji hero ── */
+.emojiHero {
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  margin-bottom: 20px;
+  animation: emojiEntrance 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both,
+             emojiFloat 4s ease-in-out 1.3s infinite;
+  display: block;
+  filter: drop-shadow(0 12px 40px rgba(162, 196, 114, 0.5));
+}
+
+@keyframes emojiEntrance {
+  from { opacity: 0; transform: scale(0.3) translateY(30px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes emojiFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%       { transform: translateY(-14px) rotate(3deg); }
+}
+
+/* ── Label chip ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(162, 196, 114, 0.18);
+  border: 1px solid rgba(162, 196, 114, 0.4);
+  color: #a2c472;
+  border-radius: 50px;
+  padding: 5px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+}
+
+/* ── Main headline ── */
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 6vw, 3.2rem);
+  font-weight: 700;
+  color: #f5ecda;
+  line-height: 1.25;
+  margin-bottom: 20px;
+
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.0s forwards;
+}
+
+.headlineAccent {
+  color: #a2c472;
+  font-style: italic;
+  position: relative;
+}
+
+/* ── Divider ── */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #a2c472, #f6dc43);
+  border-radius: 2px;
+  margin: 0 auto 24px;
+
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+}
+
+/* ── Body text ── */
+.body {
+  font-size: clamp(0.9rem, 3vw, 1.06rem);
+  color: rgba(245, 236, 218, 0.78);
+  line-height: 1.85;
+  margin-bottom: 28px;
+  font-weight: 400;
+  max-width: 580px;
+
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.4s forwards;
+}
+
+.bodyBold {
+  color: #f5ecda;
+  font-weight: 600;
+}
+
+/* ── Stats row ── */
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 36px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(162, 196, 114, 0.18);
+  border-radius: 20px;
+  overflow: hidden;
+
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+}
+
+.stat {
+  flex: 1;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat + .stat {
+  border-left: 1px solid rgba(162, 196, 114, 0.15);
+}
+
+.statIcon {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f6dc43;
+  letter-spacing: 0.02em;
+}
+
+.statLabel {
+  font-size: 0.68rem;
+  color: rgba(245, 236, 218, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── CTA Button ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #a2c472, #2d6e47);
+  color: #f5ecda;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(162, 196, 114, 0.4),
+              0 0 0 0 rgba(162, 196, 114, 0.3);
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.8s forwards,
+             btnPulse 3s ease-in-out 2.5s infinite;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover::before { opacity: 1; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(162, 196, 114, 0.55),
+              0 0 0 0 rgba(162, 196, 114, 0);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btnArrow {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.btn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(162, 196, 114, 0.4), 0 0 0 0 rgba(162, 196, 114, 0.3); }
+  50%       { box-shadow: 0 8px 32px rgba(162, 196, 114, 0.4), 0 0 0 12px rgba(162, 196, 114, 0); }
+}
+
+/* ── Skip text ── */
+.skip {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(245, 236, 218, 0.5);
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+
+  opacity: 0;
+  animation: fadeIn 0.5s ease 2.2s forwards;
+}
+
+.skip:hover {
+  color: rgba(245, 236, 218, 0.85);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* ── Shared keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Progress bar (auto-dismiss indicator) ── */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #a2c472, #f6dc43, #2d6e47);
+  width: 0%;
+  animation: progressFill var(--progress-duration, 12s) linear 0.5s forwards;
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .overlay {
+    /* Kritis: dvh memperhitungkan address bar Safari/Chrome mobile */
+    height: 100dvh;
+    overflow-y: auto; /* fallback jika konten masih melebihi tinggi layar */
+    justify-content: flex-start;
+  }
+
+  .content {
+    /* space-between mendorong button ke bawah visible area */
+    justify-content: space-between;
+    min-height: 100%;
+    padding: 0 20px;
+    padding-top: max(56px, env(safe-area-inset-top, 36px));
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 16px));
+    box-sizing: border-box;
+    gap: 0;
+  }
+
+  .emojiHero {
+    font-size: 3rem;
+    margin-bottom: 8px;
+  }
+
+  .chip {
+    font-size: 0.62rem;
+    padding: 4px 12px;
+    margin-bottom: 8px;
+  }
+
+  .headline {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .divider {
+    margin: 0 auto 12px;
+  }
+
+  .body {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .stats {
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .stat {
+    padding: 10px 4px;
+  }
+
+  .statIcon {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+
+  .statValue {
+    font-size: 0.74rem;
+  }
+
+  .statLabel {
+    font-size: 0.58rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 32px;
+    font-size: 0.95rem;
+    /* Pastikan button tidak terpotong di bawah */
+    flex-shrink: 0;
+  }
+
+  .skip {
+    top: max(14px, env(safe-area-inset-top, 10px));
+    right: 14px;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+}

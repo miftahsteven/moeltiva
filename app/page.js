@@ -2,19 +2,24 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ScrollReveal from '@/components/ScrollReveal';
+import AvocadoIntro from '@/components/AvocadoIntro';
 import HeroSection from '@/components/sections/HeroSection';
 import ProductShowcase from '@/components/sections/ProductShowcase';
 import TrustSection from '@/components/sections/TrustSection';
 import IngredientSection from '@/components/sections/IngredientSection';
 import BenefitSection from '@/components/sections/BenefitSection';
 import ProductDetailSection from '@/components/sections/ProductDetailSection';
-import OrderForm from '@/components/sections/OrderForm';
+import WhereToFind from '@/components/sections/WhereToFind';
 import TestimonialSection from '@/components/sections/TestimonialSection';
 import CTAFinal from '@/components/sections/CTAFinal';
+import UpgradeFAQSection from '@/components/sections/UpgradeFAQSection';
 
 export default function HomePage() {
   return (
     <>
+      {/* Avocado Intro Pre-Screen */}
+      <AvocadoIntro />
+
       {/* Navigation */}
       <Header />
 
@@ -24,10 +29,10 @@ export default function HomePage() {
         <HeroSection />
 
         {/* 2. Product Showcase */}
-        <ProductShowcase />
+        {/* <ProductShowcase /> */}
 
         {/* 3. Trust / Social Proof Bar */}
-        <TrustSection />
+        {/* <TrustSection /> */}
 
         {/* 4. Ingredients */}
         <IngredientSection />
@@ -36,16 +41,18 @@ export default function HomePage() {
         <BenefitSection />
 
         {/* 6. Product Detail */}
-        <ProductDetailSection />
+        {/* <ProductDetailSection /> */}
+        <ProductShowcase />
+        <UpgradeFAQSection />
 
-        {/* 7. Order Form */}
-        <OrderForm />
+        {/* 7. Where to Find */}
+        <WhereToFind />
 
         {/* 8. Testimonials */}
-        <TestimonialSection />
+        {/* <TestimonialSection /> */}
 
         {/* 9. Final CTA */}
-        <CTAFinal />
+        {/* <CTAFinal /> */}
       </main>
 
       {/* Footer */}

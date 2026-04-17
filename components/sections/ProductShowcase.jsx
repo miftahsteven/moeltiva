@@ -4,22 +4,22 @@ import styles from './ProductShowcase.module.css';
 
 const stats = [
   { value: '10', unit: 'Sachet', label: 'per Box' },
-  { value: '100%', unit: '', label: 'Bahan Alami' },
-  { value: '2rb+', unit: '', label: 'Pelanggan Puas' },
+  { value: '100%', unit: '', label: 'Real Avocado' },
+  { value: '1rb+', unit: '', label: 'Petani Lokal' },
 ];
 
 export default function ProductShowcase() {
   return (
-    <section id="produk" className={styles.section} aria-label="Product Showcase">
-      <div className={styles.topWave} aria-hidden="true" />
+    <section id="story" className={styles.section} aria-label="Product Showcase">
+      {/* <div className={styles.topWave} aria-hidden="true" /> */}
 
       <div className="container">
         {/* Header */}
         <div className={`text-center mb-5 reveal`}>
-          <div className="section-label mb-2">✦ Produk Kami</div>
+          <div className="section-label mb-2">✦ Story Behind</div>
           <h2 className="section-title">Kenalan dengan Moeltiva</h2>
           <p className="section-subtitle">
-            Dibuat dari alpukat pilihan, diproses dengan teknologi modern untuk menjaga kandungan nutrisinya.
+            Kisah ketulusan dari kebun alpukat pilihan untuk kesehatan Anda.
           </p>
         </div>
 
@@ -28,8 +28,8 @@ export default function ProductShowcase() {
           <div className={`${styles.leftCol} reveal-left`}>
             <div className={styles.lifestyleWrap}>
               <img
-                src="/drink-lifestyle.png"
-                alt="Segelas minuman Moeltiva avocado powder drink yang segar dan creamy"
+                src="/moeltiva-images/farmer-avocado.png"
+                alt="Petani alpukat Moeltiva sedang memanen buah alpukat segar di kebun"
                 className={styles.lifestyleImg}
               />
               <div className={styles.overlayCard}>
@@ -44,21 +44,13 @@ export default function ProductShowcase() {
 
           {/* Right side */}
           <div className={`${styles.rightCol} reveal-right`}>
-            <div className={styles.productFeatures}>
-              {[
-                { icon: '🌿', title: 'Tanpa Pengawet', desc: 'Formula alami tanpa bahan kimia berbahaya' },
-                { icon: '🐾', title: 'Vegan Friendly', desc: 'Cocok untuk semua gaya hidup sehat' },
-                { icon: '🇮🇩', title: 'Made in Indonesia', desc: 'Produk lokal berkualitas premium' },
-                { icon: '⚡', title: 'Siap Saji', desc: 'Cukup larutkan dalam air, langsung nikmati' },
-              ].map((f, i) => (
-                <div key={i} className={`${styles.featureItem} reveal reveal-delay-${i + 1}`}>
-                  <div className={styles.featureIcon}>{f.icon}</div>
-                  <div>
-                    <h4 className={styles.featureTitle}>{f.title}</h4>
-                    <p className={styles.featureDesc}>{f.desc}</p>
-                  </div>
-                </div>
-              ))}
+            <div className={styles.storyCard}>
+              <span className={styles.storyQuote}>“</span>
+              <p className={styles.storyDescription}>
+                Di balik rasa Moeltiva, ada kisah petani yang menanam dengan cinta dan panen dengan harapan.
+                Setiap teguk adalah jembatan antara Anda dan mereka, sebuah kontribusi kecil untuk perubahan besar.
+                Moeltiva, lebih dari rasa.
+              </p>
             </div>
 
             {/* Stats */}

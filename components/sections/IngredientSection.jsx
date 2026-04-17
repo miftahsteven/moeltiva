@@ -3,25 +3,25 @@
 import styles from './IngredientSection.module.css';
 
 const leftIngredients = [
-  { icon: '🧡', name: 'Vitamin E', desc: 'Antioksidan kuat untuk kesehatan kulit & jantung' },
-  { icon: '🌾', name: 'Serat Alami', desc: 'Mendukung pencernaan yang sehat' },
-  { icon: '🛡️', name: 'Antioksidan', desc: 'Melindungi sel dari kerusakan bebas' },
+  { icon: '🧡', name: 'Avocado fruit extract', desc: 'Terbuat dari ekstrak alpukat pilihan' },
+  { icon: '🌾', name: 'Fish Collagen', desc: 'Membantu menjaga kesehatan kulit' },
+  { icon: '🛡️', name: 'Spinach Extract', desc: 'Ekstrak bayam yang baik untuk tubuh' },
 ];
 
 const rightIngredients = [
-  { icon: '💚', name: 'Lemak Sehat', desc: 'Omega-9 & omega-6 untuk jantung sehat' },
-  { icon: '⚡', name: 'Mineral Penting', desc: 'Kalium & magnesium untuk energi' },
-  { icon: '🥑', name: 'Ekstrak Alpukat', desc: 'Nutrisi lengkap dari buah pilihan' },
+  { icon: '💚', name: 'High Fiber', desc: 'Mengandung serat alami' },
+  { icon: '⚡', name: 'With Stevia', desc: 'Cocok untuk penderita diabetes' },
+  { icon: '🥑', name: 'With Vitamin', desc: 'Vitamin C, vitamin B kompleks, vitamin D, and Zinc' },
 ];
 
 export default function IngredientSection() {
   return (
-    <section className={styles.section} aria-label="Ingredient section">
+    <section id="produk" className={styles.section} aria-label="Ingredient section">
       <div className="container">
         {/* Header */}
         <div className={`text-center mb-5 reveal`}>
-          <div className="section-label mb-2">✦ Komposisi</div>
-          <h2 className="section-title">Kandungan Premium dari Alam</h2>
+          <div className="section-label mb-2">✦ Our Ingredients</div>
+          <h2 className="section-title">Premium Ingredients from Nature </h2>
           <p className="section-subtitle">
             Setiap sachet Moeltiva mengandung nutrisi pilihan yang bekerja sinergis untuk kesehatan optimalmu.
           </p>
@@ -52,8 +52,8 @@ export default function IngredientSection() {
                 className={styles.centerImg}
               />
               <div className={styles.centerBadge}>
-                <span>100%</span>
-                <small>Natural</small>
+                <span>Real</span>
+                <span>Fruit</span>
               </div>
             </div>
           </div>
