@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { FaInstagram, FaTiktok, FaFacebook } from 'react-icons/fa6';
 import api from '@/services/api';
 import styles from './Footer.module.css';
 
@@ -21,9 +22,9 @@ export default function Footer() {
   if (!footerData || !profileData) return null;
 
   const socials = [
-    { name: 'Instagram', icon: '📸', href: profileData.instagramUrl },
-    { name: 'TikTok', icon: '🎵', href: profileData.tiktokUrl },
-    { name: 'Facebook', icon: '📘', href: profileData.facebookUrl },
+    { name: 'Instagram', icon: <FaInstagram />, href: profileData.instagramUrl },
+    { name: 'TikTok', icon: <FaTiktok />, href: profileData.tiktokUrl },
+    { name: 'Facebook', icon: <FaFacebook />, href: profileData.facebookUrl },
   ].filter(s => s.href);
 
   return (
