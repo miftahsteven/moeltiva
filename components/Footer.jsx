@@ -82,7 +82,9 @@ export default function Footer() {
               </li>
               <li>
                 <span className={styles.contactIcon}>📧</span>
-                <a href={`mailto:${profileData.email}`} className={styles.link}>{profileData.email}</a>
+                <span className={styles.linkText}>
+                  <a href={`${profileData.email}`} target="_blank" rel="noopener noreferrer" className={styles.link}>{profileData.email}</a>
+                </span>
               </li>
               <li>
                 <span className={styles.contactIcon}>📍</span>
