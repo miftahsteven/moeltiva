@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import api from '@/services/api';
+import { getImageUrl } from '@/utils/urlHelper';
 import styles from './ProductShowcase.module.css';
 
 // Cache-buster: 2026-04-16T13:54
@@ -33,7 +34,7 @@ export default function ProductShowcase() {
           <div className={`${styles.leftCol} reveal-left`}>
             <div className={styles.lifestyleWrap}>
               <img
-                src={data.imageUrl || "/moeltiva-images/farmer-avocado.png"}
+                src={getImageUrl(data.imageUrl) || "/moeltiva-images/farmer-avocado.png"}
                 alt="Moeltiva Life"
                 className={styles.lifestyleImg}
               />

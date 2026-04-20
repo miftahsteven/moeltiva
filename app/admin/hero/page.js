@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import adminApi from '@/services/adminApi';
+import { getImageUrl } from '@/utils/urlHelper';
 
 export default function AdminHeroPage() {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ export default function AdminHeroPage() {
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5001";
+
 
   useEffect(() => {
     const fetchHero = async () => {
@@ -38,12 +39,7 @@ export default function AdminHeroPage() {
     fetchHero();
   }, []);
 
-  const getImageUrl = (path) => {
-    if (!path) return '';
-    if (path.startsWith('http')) return path;
-    if (path.startsWith('/uploads')) return `${API_URL}${path}`;
-    return path; // Existing files in /public/moeltiva-images/
-  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

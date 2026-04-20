@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import api from '@/services/api';
+import { getImageUrl } from '@/utils/urlHelper';
 import styles from './HeroSection.module.css';
 
 // Cache-buster: 2026-04-16T15:32
@@ -67,7 +68,7 @@ export default function HeroSection() {
             <div className={styles.imageBg} aria-hidden="true" />
             <div className={`${styles.imageWrap} float-anim`}>
               <img
-                src="/moeltiva-images/hero1.JPG"
+                src={getImageUrl(data.imageUrl) || "/moeltiva-images/hero1.JPG"}
                 alt="Moeltiva Avocado Powder Drink"
                 className={styles.productImg}
               />

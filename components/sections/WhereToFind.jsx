@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import api from '@/services/api';
+import { getImageUrl } from '@/utils/urlHelper';
 import styles from './WhereToFind.module.css';
 
 // Cache-buster: 2026-04-16T13:54
@@ -41,7 +42,7 @@ export default function WhereToFind() {
               >
                 <div className={styles.iconWrap}>
                   <img 
-                    src={item.imageUrl || `https://logo.clearbit.com/${item.platform.toLowerCase()}.com`} 
+                    src={getImageUrl(item.imageUrl) || `https://logo.clearbit.com/${item.platform.toLowerCase()}.com`} 
                     alt={item.platform} 
                     className={styles.marketLogo} 
                     onError={(e) => {
