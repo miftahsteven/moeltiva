@@ -13,7 +13,8 @@ export default function AdminHeroPage() {
     hashtags: [],
     headerCta: '',
     buttonCta: '',
-    buyButtonCta: ''
+    buyButtonCta: '',
+    buyButtonLink: ''
   });
   const [hashtagInput, setHashtagInput] = useState('');
   const [loading, setLoading] = useState(true);
@@ -227,18 +228,24 @@ export default function AdminHeroPage() {
           {/* CTA Buttons */}
           <section>
             <h4 style={{ marginBottom: '20px', borderBottom: '1px solid #f4f5f7', paddingBottom: '10px' }}>Call to Actions</h4>
-            <div className="admin-form-group">
-              <label>Header Badge Text</label>
-              <input type="text" name="headerCta" className="admin-input" value={formData.headerCta} onChange={handleChange} />
-            </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+              <div className="admin-form-group">
+                <label>Header Badge Text</label>
+                <input type="text" name="headerCta" className="admin-input" value={formData.headerCta} onChange={handleChange} />
+              </div>
               <div className="admin-form-group">
                 <label>Learn More Label</label>
                 <input type="text" name="buttonCta" className="admin-input" value={formData.buttonCta} onChange={handleChange} />
               </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
               <div className="admin-form-group">
                 <label>Buy Now Label</label>
                 <input type="text" name="buyButtonCta" className="admin-input" value={formData.buyButtonCta} onChange={handleChange} />
+              </div>
+              <div className="admin-form-group">
+                <label>Buy Now Link</label>
+                <input type="text" name="buyButtonLink" className="admin-input" value={formData.buyButtonLink || ''} onChange={handleChange} placeholder="e.g. #order or WhatsApp link" />
               </div>
             </div>
           </section>

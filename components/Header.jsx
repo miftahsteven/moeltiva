@@ -20,6 +20,7 @@ export default function Header() {
   const [active, setActive] = useState('');
 
   const [profile, setProfile] = useState(null);
+  const [hero, setHero] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,11 +29,16 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
 
     api.get(`/profile`).then(res => setProfile(res.data));
+    api.get(`/hero`).then(res => setHero(res.data));
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNav = (e, href) => {
+    if (!href || !href.startsWith('#')) {
+      // Allow default link behavior for external/non-anchor links
+      return;
+    }
     e.preventDefault();
     setMenuOpen(false);
     setActive(href);
@@ -74,12 +80,14 @@ export default function Header() {
 
         {/* CTA */}
         <a
-          href="#order"
+          href={hero?.buyButtonLink || '#order'}
           className={`btn-moeltiva-primary ${styles.headerCta}`}
-          onClick={(e) => handleNav(e, '#order')}
+          onClick={(e) => handleNav(e, hero?.buyButtonLink || '#order')}
           id="header-cta-btn"
+          target={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? '_blank' : undefined}
+          rel={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? 'noopener noreferrer' : undefined}
         >
-          🛒 Beli Sekarang
+          {hero?.buyButtonCta || '🛒 Beli Sekarang'}
         </a>
 
         {/* Hamburger */}
@@ -108,11 +116,13 @@ export default function Header() {
           </a>
         ))}
         <a
-          href="#order"
+          href={hero?.buyButtonLink || '#order'}
           className={`btn-moeltiva-primary mt-3 ${styles.mobileCta}`}
-          onClick={(e) => handleNav(e, '#order')}
+          onClick={(e) => handleNav(e, hero?.buyButtonLink || '#order')}
+          target={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? '_blank' : undefined}
+          rel={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? 'noopener noreferrer' : undefined}
         >
-          🛒 Beli Sekarang
+          {hero?.buyButtonCta || '🛒 Beli Sekarang'}
         </a>
       </div>
     </header>
