@@ -86,6 +86,11 @@ export default function Header() {
           id="header-cta-btn"
           target={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? '_blank' : undefined}
           rel={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? 'noopener noreferrer' : undefined}
+          style={{
+            backgroundColor: hero?.buyButtonBg || undefined,
+            color: hero?.buyButtonTextColor || undefined,
+            boxShadow: hero?.buyButtonBg ? `0 4px 20px ${hero.buyButtonBg}66` : undefined
+          }}
         >
           {hero?.buyButtonCta || '🛒 Beli Sekarang'}
         </a>
@@ -121,6 +126,11 @@ export default function Header() {
           onClick={(e) => handleNav(e, hero?.buyButtonLink || '#order')}
           target={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? '_blank' : undefined}
           rel={hero?.buyButtonLink && !hero.buyButtonLink.startsWith('#') ? 'noopener noreferrer' : undefined}
+          style={{
+            backgroundColor: hero?.buyButtonBg || undefined,
+            color: hero?.buyButtonTextColor || undefined,
+            boxShadow: hero?.buyButtonBg ? `0 4px 20px ${hero.buyButtonBg}66` : undefined
+          }}
         >
           {hero?.buyButtonCta || '🛒 Beli Sekarang'}
         </a>

@@ -14,7 +14,9 @@ export default function AdminHeroPage() {
     headerCta: '',
     buttonCta: '',
     buyButtonCta: '',
-    buyButtonLink: ''
+    buyButtonLink: '',
+    buyButtonBg: '',
+    buyButtonTextColor: ''
   });
   const [hashtagInput, setHashtagInput] = useState('');
   const [loading, setLoading] = useState(true);
@@ -246,6 +248,50 @@ export default function AdminHeroPage() {
               <div className="admin-form-group">
                 <label>Buy Now Link</label>
                 <input type="text" name="buyButtonLink" className="admin-input" value={formData.buyButtonLink || ''} onChange={handleChange} placeholder="e.g. #order or WhatsApp link" />
+              </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginTop: '15px' }}>
+              <div className="admin-form-group">
+                <label>Button Background Color</label>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <input
+                    type="color"
+                    name="buyButtonBg"
+                    value={formData.buyButtonBg || '#F6DC43'}
+                    onChange={handleChange}
+                    style={{ border: '1px solid #e1e3ea', borderRadius: '6px', width: '42px', height: '42px', padding: '2px', cursor: 'pointer' }}
+                  />
+                  <input
+                    type="text"
+                    name="buyButtonBg"
+                    className="admin-input"
+                    value={formData.buyButtonBg || ''}
+                    onChange={handleChange}
+                    placeholder="#F6DC43"
+                    style={{ flex: 1 }}
+                  />
+                </div>
+              </div>
+              <div className="admin-form-group">
+                <label>Button Text Color</label>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <input
+                    type="color"
+                    name="buyButtonTextColor"
+                    value={formData.buyButtonTextColor || '#215737'}
+                    onChange={handleChange}
+                    style={{ border: '1px solid #e1e3ea', borderRadius: '6px', width: '42px', height: '42px', padding: '2px', cursor: 'pointer' }}
+                  />
+                  <input
+                    type="text"
+                    name="buyButtonTextColor"
+                    className="admin-input"
+                    value={formData.buyButtonTextColor || ''}
+                    onChange={handleChange}
+                    placeholder="#215737"
+                    style={{ flex: 1 }}
+                  />
+                </div>
               </div>
             </div>
           </section>
